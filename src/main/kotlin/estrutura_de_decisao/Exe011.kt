@@ -22,7 +22,33 @@ fun main() {
     val scanner = Scanner(System.`in`)
 
     try {
+        print("Entre com o Salário R$: ")
+        var salario = scanner.nextDouble()
+        var aumento : Double = 0.0
+        var porcentagem : String = ""
+        var novoSalario : Double = 0.0
+        if(salario <= 280.00){
+            aumento = (salario * 20) / 100
+            novoSalario = salario + aumento
+            porcentagem = "20%"
+        }else if(salario <= 700){
+            aumento = (salario * 15) / 100
+            novoSalario = salario + aumento
+            porcentagem = "15%"
+        }else if(salario <= 1500){
+            aumento = (salario * 10) / 100
+            novoSalario = salario + aumento
+            porcentagem = "10%"
+        }else if(salario > 1500){
+            aumento = (salario * 5) / 100
+            novoSalario = salario + aumento
+            porcentagem = "5%"
+        }
 
+        println("Salário R$: ${String.format("%.2f", salario)}")
+        println("Salário com reajuste R$: ${String.format("%.2f", novoSalario)}")
+        println("Aumento de R$: ${String.format("%.2f", aumento)}")
+        println("Porcentagem de aumento $porcentagem")
     }catch (e : Exception){
         println("Refaça o operação digitando valores válidos")
     }
